@@ -35,7 +35,7 @@ def main():
         position = get_positions(contas, args.nome)
         contas_to_check = contas.iloc[position:]
         contas_devido = contas_to_check.query("Nome == '{}' and Valor != -1".format(devedor[args.nome]))
-        print('Pessoa: {} | Deve: {}'.format(args.nome, contas_devido.Valor.sum()))
+        print('Pessoa: {} | Deve: {}'.format(args.nome, contas_devido.Valor.sum().round(2)))
 
 if __name__ == "__main__":
     main()
